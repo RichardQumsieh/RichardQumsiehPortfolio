@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { useInView } from "react-intersection-observer";
 
 const container = {
   hidden: { opacity: 0 },
@@ -32,29 +32,73 @@ const item = {
 const letters = "React Development".split("");
 
 export const Hero = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, inView } = useInView({
+    threshold: 0.1, // Trigger when 10% of the element is visible
+    triggerOnce: true, // Only trigger once
+  });
 
   return (
     <section
+      id="portfolio"
       ref={ref}
-      className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-20 overflow-hidden relative"
+      className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-20 overflow-hidden relative drop-shadow-lg"
     >
-      {visible && (
+      {/* BinaryBackground */}
+      <svg 
+        className="absolute inset-0 w-full h-full opacity-5"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <pattern 
+          id="binary" 
+          width="20" 
+          height="20" 
+          patternUnits="userSpaceOnUse"
+        >
+          <text 
+            x="0" 
+            y="15" 
+            fontFamily="monospace" 
+            fontSize="12" 
+            fill="currentColor"
+          >
+            101010
+          </text>
+          <text 
+            x="0" 
+            y="30" 
+            fontFamily="monospace" 
+            fontSize="12" 
+            fill="currentColor"
+          >
+            010101
+          </text>
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#binary)" />
+      </svg>
+
+      {/* HexagonBackground */}
+      <svg 
+        className="absolute inset-0 w-full h-full opacity-12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <pattern 
+          id="hexagons" 
+          width="50" 
+          height="43.4" 
+          patternUnits="userSpaceOnUse"
+          patternTransform="scale(1.2)"
+        >
+          <polygon 
+            points="25,0 50,14.7 50,44.1 25,58.8 0,44.1 0,14.7" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="0.5"
+          />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#hexagons)" />
+      </svg>
+
+      {inView && (
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,7 +148,7 @@ export const Hero = () => {
                 className="flex flex-wrap gap-4"
                 variants={item}
               >
-                <Button className="px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
+                <Button onClick={()=>{window.location.href = '#contact';}} className="px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
                   Get in Touch
                   <ArrowRightIcon className="ml-2 h-5 w-5" />
                 </Button>
