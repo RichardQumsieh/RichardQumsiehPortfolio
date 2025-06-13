@@ -13,6 +13,9 @@ const dmSerifDisplay = DM_Serif_Display({
 export const metadata: Metadata = {
   title: "Richard Qumsieh | React Developer",
   description: "Professional React Development Services",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

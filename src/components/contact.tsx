@@ -1,9 +1,41 @@
+'use client';
+
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
+  const formRef = useRef(null);
+  const [status, setStatus] = useState('');
+
+  const sendEmail = async (e: { preventDefault: () => void; target: any; }) => {
+    e.preventDefault(); // Prevent page refresh
+    setStatus('Sending...');
+
+    const form = e.target;
+
+    emailjs
+      .sendForm(
+        'service_97z9znf',
+        'template_0shlaqr',
+        form,
+        '7HCZbs_mXKSVfJZZv'
+      )
+      .then(
+        () => {
+          setStatus('Email sent successfully!');
+          form.reset();
+        },
+        (error) => {
+          console.error('FAILED...', error);
+          setStatus('Failed to send email.');
+        }
+      );
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -23,25 +55,27 @@ export const Contact = () => {
           </div>
           
           <div className="md:w-1/2 p-12">
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-6" method="POST">
               <div className="space-y-2">
                 <Label htmlFor="name">Your Name</Label>
-                <Input id="name" placeholder="John Doe" />
+                <Input id="name" name="from_name" placeholder="John Doe" required />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="johndoe@example.com" />
+                <Input id="email" name="reply_to" type="email" placeholder="johndoe@example.com" required />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Your message..." rows={5} />
+                <Textarea id="message" name="message" placeholder="Your message..." rows={5} required />
               </div>
-              
+
               <Button type="submit" className="w-full py-6 text-lg">
                 Send Message
               </Button>
+
+              {status && <p className="text-center mt-4">{status}</p>}
             </form>
           </div>
         </div>

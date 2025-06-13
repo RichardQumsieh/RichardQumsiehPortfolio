@@ -104,10 +104,10 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="container mx-auto px-6 min-h-screen flex flex-col md:flex-row items-center justify-center">
+          <div className="container mx-auto px-4 sm:px-6 min-h-screen flex flex-col-reverse md:flex-row items-center justify-center">
             {/* Text Content */}
             <motion.div 
-              className="md:w-1/2 mb-12 md:mb-0"
+              className="w-full md:w-1/2 mb-8 md:mb-0"
               variants={container}
               initial="hidden"
               animate="visible"
@@ -160,14 +160,14 @@ export const Hero = () => {
 
             {/* Image */}
             <motion.div 
-              className="md:w-1/2 flex justify-center"
+              className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <div className="relative w-full max-w-md">
+              <div className="relative w-4/5 xs:w-full max-w-xs sm:max-w-md">
                 <motion.div 
-                  className="absolute -top-6 -left-6 w-full h-full border-4 border-primary rounded-xl"
+                  className="absolute -top-4 -left-4 w-full h-full border-2 sm:border-4 border-primary rounded-xl"
                   animate={{
                     rotate: [0, 5, -5, 0],
                   }}
@@ -192,7 +192,7 @@ export const Hero = () => {
 
       {/* Floating decorative elements */}
       <motion.div
-        className="absolute top-1/4 left-1/5 w-4 h-4 rounded-full bg-primary"
+        className="hidden md:block absolute top-1/4 left-1/5 w-4 h-4 rounded-full bg-primary"
         animate={{
           x: [0, -20, 0],
           opacity: [0.6, 1, 0.6]
