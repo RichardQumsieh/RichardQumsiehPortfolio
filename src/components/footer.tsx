@@ -5,7 +5,6 @@ import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Button } from './ui/button';
 
 export const Footer = () => {
   const controls = useAnimation();

@@ -11,11 +11,11 @@ export const Contact = () => {
   const formRef = useRef(null);
   const [status, setStatus] = useState('');
 
-  const sendEmail = async (e: { preventDefault: () => void; target: any; }) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent page refresh
     setStatus('Sending...');
 
-    const form = e.target;
+    const form = e.currentTarget;
 
     emailjs
       .sendForm(

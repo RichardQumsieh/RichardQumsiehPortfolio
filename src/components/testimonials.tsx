@@ -54,7 +54,7 @@ export const Testimonials = () => {
                 </Tooltip>
               </TooltipProvider>
               
-              <p className="text-gray-700 mb-4 italic">"{testimonial.content}"</p>
+              <p className="text-gray-700 mb-4 italic">&quot;{testimonial.content}&quot;</p>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <span 
