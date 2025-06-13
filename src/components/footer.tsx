@@ -23,7 +23,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Column */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">Your<span className="text-primary">Name</span></h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Richard Qumsieh</h3>
             <p className="mb-4">
               Professional React developer creating pixel-perfect, high-performance web applications.
             </p>
@@ -64,15 +64,15 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4 text-lg">Contact</h4>
             <address className="not-italic space-y-2">
               <p>richardqumsieh@gmail.com</p>
-              <p>+1 (234) 567-8900</p>
-              <p>San Francisco, CA</p>
+              <p>+962 (79) 700-6106</p>
+              <p>Al-Balqa, JO</p>
             </address>
           </div>
         </div>
 
         {/* Copyright Bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p>© {currentYear} Richard-Qumsieh. All rights reserved.</p>
+          <p>© {currentYear} - All rights reserved.</p>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-sm hover:text-white transition-colors">

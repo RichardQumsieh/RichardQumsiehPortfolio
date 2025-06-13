@@ -5,7 +5,7 @@ const services = [
     icon: "💻",
     title: "React Development",
     description: "Custom React applications built with best practices.",
-    features: ["TypeScript", "Performance Optimization", "Testing"]
+    features: ["TypeScript", "Performance Optimization", "Tailwind & Shadcn UI"]
   },
   {
     icon: "🎨",

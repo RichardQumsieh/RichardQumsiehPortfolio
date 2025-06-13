@@ -1,11 +1,10 @@
-'use client'; // Required for animations
+'use client';
 
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 
-// Animation variants
 const container = {
   hidden: { opacity: 0 },
   visible: {
@@ -98,7 +97,7 @@ export const Hero = () => {
                 className="text-xl text-gray-600 mb-8"
                 variants={item}
               >
-                I build pixel-perfect, high-performance web applications with React and TypeScript.
+                Creating pixel-perfect, high-performance web applications with React and TypeScript.
               </motion.p>
               
               <motion.div 
@@ -107,7 +106,7 @@ export const Hero = () => {
               >
                 <Button className="px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
                   Get in Touch
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRightIcon className="ml-2 h-5 w-5" />
                 </Button>
                 <Button variant="outline" className="px-8 py-6 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-white">
                   View Work
