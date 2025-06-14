@@ -20,8 +20,7 @@ export const Footer = () => {
   
   const navLinks = [
     { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Testimonials", href: "#testimonials" },
+    { name: "Portfolio", href: "#portfolio" }
     { name: "Contact", href: "#contact" }
   ];
 
