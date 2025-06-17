@@ -14,8 +14,7 @@ import { Toaster } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/footer';
 import { useEffect, useState } from 'react';
-import { InteractiveBackground } from '@/components/works-page/interactive-background';
-import { MouseFollower } from '@/components/mouse-follower';
+import WaterTunnel from '@/components/works-page/waterfall-background';
 
 const projects = [
   {
@@ -181,8 +180,7 @@ export default function WorksPage() {
         <Toaster />
         <div className="max-w-7xl mx-auto">
           <div className='container flex flex-col items-center text-center min-h-screen justify-center px-2 sm:px-0'>
-            <InteractiveBackground />
-            <MouseFollower />
+            <WaterTunnel />
             <div className="text-center mb-10 sm:mb-16 z-10">
               <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
                 Real-World Projects
@@ -206,9 +204,9 @@ export default function WorksPage() {
             </div>
           
             {/* Dev Approach */}
-            <section className="my-3 py-3 w-full">
+            <section className="my-3 py-3 w-full z-10">
               <div className="mx-auto px-2 sm:px-4">
-                <h3 className="text-xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 z-10">My Development Approach</h3>
+                <h3 className="text-xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">My Development Approach</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                   {[
                     {
