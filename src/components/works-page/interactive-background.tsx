@@ -3,24 +3,50 @@
 import { useEffect, useRef } from 'react';
 
 export const InteractiveBackground = () => {
-  const svgRef = useRef<SVGSVGElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const svg = svgRef.current;
-    if (!svg) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    const particles = Array.from({ length: 15 }, () => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 3 + 1,
+      speed: Math.random() * 0.2 + 0.1
+    }));
+
+    const updateParticles = (mouseX: number, mouseY: number) => {
+      container.innerHTML = '';
+      
+      particles.forEach(particle => {
+        const element = document.createElement('div');
+        element.className = `absolute rounded-full bg-primary/10`;
+        
+        // Move away from mouse
+        const dx = particle.x - mouseX;
+        const dy = particle.y - mouseY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 20) {
+          particle.x += dx / distance * 5;
+          particle.y += dy / distance * 5;
+        }
+        
+        element.style.left = `${particle.x}%`;
+        element.style.top = `${particle.y}%`;
+        element.style.width = `${particle.size}px`;
+        element.style.height = `${particle.size}px`;
+        
+        container.appendChild(element);
+      });
+    };
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
-      const circles = svg.querySelectorAll('circle');
-      
-      circles.forEach((circle, index) => {
-        const delay = index * 0.1;
-        const x = clientX * (0.35 + index * 0.2);
-        const y = clientY * (0.35 + index * 0.2);
-        
-        circle.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
-        circle.style.transition = `transform ${0.3 + delay}s ease-out`;
-      });
+      const mouseX = (clientX / window.innerWidth) * 100;
+      const mouseY = (clientY / window.innerHeight) * 100;
+      updateParticles(mouseX, mouseY);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -28,17 +54,9 @@ export const InteractiveBackground = () => {
   }, []);
 
   return (
-    <svg 
-      ref={svgRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-0"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Floating dots */}
-      <circle cx="10%" cy="20%" r="3" fill="currentColor" className="text-primary" />
-      <circle cx="30%" cy="50%" r="4" fill="currentColor" className="text-violet-500" />
-      <circle cx="70%" cy="30%" r="2" fill="currentColor" className="text-primary" />
-      <circle cx="85%" cy="70%" r="3" fill="currentColor" className="text-violet-500" />
-      <circle cx="50%" cy="80%" r="4" fill="currentColor" className="text-primary" />
-    </svg>
+    <div 
+      ref={containerRef}
+      className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    />
   );
 };

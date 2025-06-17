@@ -19,9 +19,9 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact" }
+    { name: "Services", href: "/#services" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Contact", href: "/#contact" }
   ];
 
   const socialLinks = [

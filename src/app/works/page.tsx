@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/footer';
 import { useEffect, useState } from 'react';
 import { InteractiveBackground } from '@/components/works-page/interactive-background';
+import { MouseFollower } from '@/components/mouse-follower';
 
 const projects = [
   {
@@ -156,10 +157,8 @@ export default function WorksPage() {
 
   return (
     <>
-      <Toaster />
-      
       {/* BG */}
-      <div className="fixed top-0 left-0 inset-0 overflow-hidden">
+      <div className="fixed top-0 left-0 inset-0 overflow-hidden -z-10">
         <motion.div
           className="absolute top-0 left-0 w-[200%] h-[200%] bg-gradient-to-r from-primary/10 via-violet-500/10 to-primary/10"
           animate={{
@@ -178,21 +177,23 @@ export default function WorksPage() {
         />
       </div>
 
-      <div className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="py-12 px-2 sm:px-4 lg:px-8 bg-gray-50">
+        <Toaster />
         <div className="max-w-7xl mx-auto">
-          <div className='container flex flex-col items-center text-center min-h-screen justify-center'>
+          <div className='container flex flex-col items-center text-center min-h-screen justify-center px-2 sm:px-0'>
             <InteractiveBackground />
-            <div className="text-center mb-16">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                My Professional Projects
+            <MouseFollower />
+            <div className="text-center mb-10 sm:mb-16 z-10">
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+                Real-World Projects
               </h1>
-              <p className="mt-4 text-xl text-gray-600">
+              <p className="mt-3 sm:mt-4 text-md sm:text-xl text-gray-600 z-10">
                 Real-world applications built with modern technologies
               </p>
             </div>
 
             {/* Interactive Project Filters */}
-            <div className="flex justify-center gap-2 mb-8">
+            <div className="flex flex-wrap justify-center md:gap-2 mb-6 sm:mb-8 z-10">
               {['All', 'Web Apps', 'Desktop Apps', 'E-Commerce'].map((filter) => (
                 <Button
                   key={filter}
@@ -205,10 +206,10 @@ export default function WorksPage() {
             </div>
           
             {/* Dev Approach */}
-            <section className="my-3 py-3">
-              <div className="mx-auto px-4">
-                <h3 className="text-3xl font-bold text-center mb-8">My Development Approach</h3>
-                <div className="grid md:grid-cols-3 gap-8">
+            <section className="my-3 py-3 w-full">
+              <div className="mx-auto px-2 sm:px-4">
+                <h3 className="text-xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 z-10">My Development Approach</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                   {[
                     {
                       title: "Planning",
@@ -226,10 +227,10 @@ export default function WorksPage() {
                       icon: "🚀"
                     }
                   ].map((step, i) => (
-                    <div key={i} className="text-center p-6 border rounded-lg hover:shadow-md transition-shadow">
-                      <span className="text-4xl block mb-4">{step.icon}</span>
-                      <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                      <p className="text-gray-600">{step.description}</p>
+                    <div key={i} className="text-center p-4 sm:p-6 border rounded-lg hover:shadow-md transition-shadow bg-white">
+                      <span className="text-3xl sm:text-4xl block mb-3 sm:mb-4">{step.icon}</span>
+                      <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{step.title}</h3>
+                      <p className="text-gray-600 text-sm sm:text-base">{step.description}</p>
                     </div>
                   ))}
                 </div>
@@ -248,7 +249,7 @@ export default function WorksPage() {
 
                 {/* Interactive SVG Decoration */}
                 <svg 
-                  className={`absolute top-0 right-0 w-32 h-32 transition-opacity duration-500 ${hoveredProject === index ? 'opacity-30' : 'opacity-0'}`}
+                  className={`absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 transition-opacity duration-500 ${hoveredProject === index ? 'opacity-30' : 'opacity-0'}`}
                   viewBox="0 0 100 100"
                 >
                   <path
@@ -267,19 +268,19 @@ export default function WorksPage() {
                     className="text-violet-500"
                   />
                 </svg>
-                <div className="md:flex">
-                  <div className="p-8 md:w-1/2">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 p-3 bg-primary/10 rounded-lg">
+                <div className="flex flex-col md:flex-row">
+                  <div className="p-4 sm:p-8 md:w-1/2">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="flex-shrink-0 p-2 sm:p-3 bg-primary/10 rounded-lg">
                         {project.icon}
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
-                        <p className="mt-2 text-gray-600">{project.description}</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{project.title}</h3>
+                        <p className="mt-1 sm:mt-2 text-gray-600 text-sm sm:text-base">{project.description}</p>
                         
-                        <div className="mt-6">
-                          <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
-                          <ul className="space-y-2 text-gray-600">
+                        <div className="mt-4 sm:mt-6">
+                          <h4 className="font-semibold text-gray-900 mb-1 sm:mb-2">Key Features:</h4>
+                          <ul className="space-y-1 sm:space-y-2 text-gray-600 text-sm sm:text-base">
                             {project.features.map((feature, i) => (
                               <li key={i} className="flex items-start">
                                 <span className="text-primary mr-2 mt-1">•</span>
@@ -289,13 +290,13 @@ export default function WorksPage() {
                           </ul>
                         </div>
 
-                        <div className="mt-6">
-                          <h4 className="font-semibold text-gray-900 mb-2">Tech Stack:</h4>
+                        <div className="mt-4 sm:mt-6">
+                          <h4 className="font-semibold text-gray-900 mb-1 sm:mb-2">Tech Stack:</h4>
                           <div className="flex flex-wrap gap-2">
                             {project.tech.map((tech, i) => (
                               <span 
                                 key={i} 
-                                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200"
+                                className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200"
                               >
                                 {tech}
                               </span>
@@ -303,15 +304,15 @@ export default function WorksPage() {
                           </div>
                         </div>
                         
-                        {/* Skill Metere */}
-                        <div className="mt-4 space-y-2">
+                        {/* Skill Meter */}
+                        <div className="mt-3 sm:mt-4 space-y-1 sm:space-y-2">
                           {[
                             { skill: "Frontend" },
                             { skill: "Backend" },
                             { skill: "Problem Solving" }
                           ].map((item, i) => (
                             <div key={i}>
-                              <div className="flex justify-between text-sm mb-1">
+                              <div className="flex justify-between text-xs sm:text-sm mb-0.5 sm:mb-1">
                                 <span>{item.skill}</span>
                                 <span>{project.level?.at(i)}%</span>
                               </div>
@@ -330,7 +331,7 @@ export default function WorksPage() {
                     </div>
                   </div>
                   
-                  <div className="bg-gray-900 p-0 md:w-1/2 border-t md:border-t-0 md:border-l border-gray-200">
+                  <div className="bg-gray-900 p-0 md:w-1/2 border-t md:border-t-0 md:border-l border-gray-200 min-h-[200px] sm:min-h-[300px]">
                     <CodeEditor 
                       code={project.codeSnippet} 
                       language={
@@ -338,7 +339,7 @@ export default function WorksPage() {
                         project.title === "GoPrime" ? "javascript" : 
                         "javascript"
                       }
-                      className="h-full min-h-[300px]"
+                      className="h-full min-h-[200px] sm:min-h-[300px] overflow-x-auto"
                     />
                   </div>
                 </div>
@@ -349,20 +350,20 @@ export default function WorksPage() {
       </div>
       
       {/* Why Work With Me */}
-      <div className="mt-2 p-8 max-w-3xl mx-auto rounded-xl">
-        <h2 className="text-2xl font-bold text-center mb-6">Why Work With Me?</h2>
-        <ul className="mx-auto space-y-4">
+      <div className="p-4 sm:p-8 max-w-3xl mx-auto rounded-xl">
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6">Why Work With Me?</h2>
+        <ul className="mx-auto space-y-3 sm:space-y-4">
           <li className="flex items-start">
-            <span className="bg-primary text-white rounded-full p-1 mr-3">✓</span>
-            <span><strong>Full Transparency:</strong> Regular updates and open communication</span>
+            <span className="bg-primary text-white rounded-full p-1 mr-2 sm:mr-3">✓</span>
+            <span className="text-sm sm:text-base"><strong>Full Transparency:</strong> Regular updates and open communication</span>
           </li>
           <li className="flex items-start">
-            <span className="bg-primary text-white rounded-full p-1 mr-3">✓</span>
-            <span><strong>Adaptable Solutions:</strong> Customized to your specific business needs</span>
+            <span className="bg-primary text-white rounded-full p-1 mr-2 sm:mr-3">✓</span>
+            <span className="text-sm sm:text-base"><strong>Adaptable Solutions:</strong> Customized to your specific business needs</span>
           </li>
           <li className="flex items-start">
-            <span className="bg-primary text-white rounded-full p-1 mr-3">✓</span>
-            <span><strong>Quick Learner:</strong> Able to rapidly adapt to new requirements</span>
+            <span className="bg-primary text-white rounded-full p-1 mr-2 sm:mr-3">✓</span>
+            <span className="text-sm sm:text-base"><strong>Quick Learner:</strong> Able to rapidly adapt to new requirements</span>
           </li>
         </ul>
       </div>
