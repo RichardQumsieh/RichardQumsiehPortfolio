@@ -48,7 +48,7 @@ export const MouseFollower = () => {
 
   return (
       <motion.div
-        className="fixed pointer-events-none z-50 mix-blend-difference"
+        className="hidden md:block fixed pointer-events-none z-50 mix-blend-difference"
         style={{
           position: 'fixed',
           left: 0,
