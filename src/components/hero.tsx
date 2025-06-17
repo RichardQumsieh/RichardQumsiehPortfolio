@@ -104,7 +104,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="container mx-auto px-4 sm:px-6 min-h-screen flex flex-col-reverse md:flex-row items-center justify-center">
+          <div className="container mx-auto px-4 sm:px-6 min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-center">
             {/* Text Content */}
             <motion.div 
               className="w-full md:w-1/2 mb-8 md:mb-0"
@@ -148,11 +148,11 @@ export const Hero = () => {
                 className="flex flex-wrap gap-4"
                 variants={item}
               >
-                <Button onClick={()=>{window.location.href = '#contact';}} className="px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
+                <Button onClick={()=>{window.location.href = '#contact';}} className="px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all z-10">
                   Get in Touch
                   <ArrowRightIcon className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" className="px-8 py-6 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-white">
+                <Button onClick={()=>{window.location.href = '/works';}} variant="outline" className="px-8 py-6 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-white z-10">
                   View Work
                 </Button>
               </motion.div>

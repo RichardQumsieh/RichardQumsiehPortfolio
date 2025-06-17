@@ -145,8 +145,9 @@ export const Header = () => {
           whileTap={{ scale: 0.95 }}
         >
           <Button
+            onClick={()=>{window.location.href = '/works';}}
             size="lg"
-            className="text-base sm:text-lg px-8 py-6 rounded-full shadow-lg bg-gradient-to-r from-primary to-violet-600 hover:shadow-xl transition-all group"
+            className="text-base sm:text-lg px-8 py-6 rounded-full shadow-lg bg-gradient-to-r from-primary to-violet-600 hover:shadow-xl transition-all group cursor-pointer"
           >
             <span className="mr-2">View My Work</span>
             <RocketIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
