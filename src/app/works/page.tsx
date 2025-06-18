@@ -15,19 +15,6 @@ import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/footer';
 import { useEffect, useState } from 'react';
 import WaterTunnel from '@/components/works-page/waterfall-background';
-import { Metadata } from 'next';
-
-
-export const metadata: Metadata = {
-  title: "My Projects | Professional Work Portfolio | [Richard Qumsieh] | [Richard]",
-  description: "Explore my full-stack development projects including e-commerce, healthcare apps, and social networks. Built with React, Node.js, and PostgreSQL.",
-  keywords: ["web developer portfolio", "React projects", "full-stack developer", "e-commerce development"],
-  openGraph: {
-    title: "My Development Projects | [Richard Qumsieh] | [Richard]",
-    description: "Case studies of my professional web applications",
-    images: [{ url: "/favicon.svg" }],
-  }
-};
 
 const projects = [
   {
