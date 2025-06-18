@@ -73,7 +73,7 @@ export const Header = () => {
       </svg>
 
       <div className="container mx-auto px-4 flex flex-col items-center text-center relative z-10">
-        <Image src={'/favicon.svg'} alt="RQ Logo" width={200} height={200} className="pointer-events-none"/>
+        <Image src={'/favicon.svg'} alt="RQ Logo" width={200} height={200} priority={true} loading="lazy" className="pointer-events-none"/>
         {/* Animated Name */}
         <motion.div className="mb-10 md:mb-16 w-full flex justify-center">
           <motion.div

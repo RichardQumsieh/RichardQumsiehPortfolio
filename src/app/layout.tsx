@@ -25,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="WZI5fGl9dqE0aUaonzzy61iDhC47lBbn8frMz8BGJYU" />
+      </head>
       <body
         className={`${dmSerifDisplay.variable} antialiased`}
       >
