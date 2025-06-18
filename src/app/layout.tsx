@@ -11,11 +11,16 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Richard Qumsieh | React Developer",
-  description: "Professional React Development Services",
+  title: "[Richard Qumsieh] | [Richard] | React Developer",
+  description: "Professional React Development Services. Explore my full-stack development projects including e-commerce, healthcare apps, and social networks. Built with React, Node.js, and PostgreSQL.",
   icons: {
     icon: '/favicon.svg',
   },
+  keywords: ["web developer portfolio", "React projects", "full-stack developer", "e-commerce development"],
+  openGraph: {
+    title: "My Development Projects | [Richard Qumsieh] | [Richard]",
+    description: "Case studies of my professional web applications",
+  }
 };
 
 export default function RootLayout({
