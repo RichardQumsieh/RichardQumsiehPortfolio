@@ -11,7 +11,7 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "[Richard Qumsieh] | [Richard] | React Developer",
+  title: "Richard Qumsieh || Full Stack Developer",
   description: "Professional React Development Services. Explore my full-stack development projects including e-commerce, healthcare apps, and social networks. Built with React, Node.js, and PostgreSQL.",
   icons: {
     icon: '/favicon.svg',
